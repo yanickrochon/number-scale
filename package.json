@@ -1,0 +1,32 @@
+{
+  "name": "number-scale",
+  "version": "0.0.1",
+  "description": "Convert numbers according to a given scale.",
+  "author": "Yanick Rochon <yanick.rochon@gmail.com>",
+  "main": "lib/number-scale.js",
+  "scripts": {
+    "test": "mocha",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly"
+  },
+  "homepage": "https://github.com/yanickrochon/number-scale",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanickrochon/number-scale"
+  },
+  "bugs": {
+    "url": "https://github.com/yanickrochon/number-scale/issues"
+  },
+  "keywords": [
+    "number",
+    "scale",
+    "format",
+    "human readable"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
+}
