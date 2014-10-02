@@ -36,8 +36,6 @@ A function receiving a number, and optionally some options, and return the scale
 
 * **n**:*Number* - any numeric value. If the argument is not a valid number, `NaN` is returned.
 * **options**:*Object* - the formatting options
-  * **maxExponent**:*Number* - indicate the maximum exponent value for the given scale. Scaling up will stop at the largest scale unit, or at this specified exponent value. *(Defaults to `308`)*
-  * **minExponent**:*Number* - indicate the minimum exponent value for the given scale. Scaling down will stop at the smallest scale unit, or at this specified exponent value. *(Defaults to `-324`)*
   * **precision**:*Number* - a numeric value indicating the number of decimal digits to round to. *(Defaults to `2`)*
   * **roundMode**:*String* - the rounding method to use. May be one of the following : `"up"` always round up, `"down"` always round down, `"even"` round to nearest even value, `"odd"` round to nearest odd value. *(Defaults to `"up"`)*
   * **scale**:*String* - the scale to use (see [predefined scales](#predefined-scales), or [custom scales](#custom-scales).) *(Defaults to `"SI"`)*
@@ -66,16 +64,7 @@ This is where the known scales are defined.
 
 #### Custom Scales
 
-It is possible to define a custom scale by setting (or overridding) `numberScale.scales[scaleKey]`, where `scaleKey` is a string. All scales should be compatible with this implementation of the **SI** scale.
-
-```javascript
-var SI = {
-  baseUnit: 8,
-  units: ['y','z','a','f','p','n','u','m','','K','M','G','T','P','E','Z','Y'],
-  mods: 1000,    // = [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, ...]
-  recursive: false
-};
-```
+It is possible to define a new scale, or even override a current one, by calling `numberScale.defineScale(scale)` where `scale` is an `Object` defining the scale's properties. Take a look at the [known scale definitions](blob/master/lib/number-scale.js#L34-L84) for more information.
 
 
 ## Contribution

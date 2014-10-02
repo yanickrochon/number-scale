@@ -1,6 +1,6 @@
 {
   "name": "number-scale",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert numbers according to a given scale.",
   "author": "Yanick Rochon <yanick.rochon@gmail.com>",
   "main": "lib/number-scale.js",
@@ -25,6 +25,8 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
     "istanbul": "^0.3.2",
     "mocha": "^1.21.4",
     "should": "^4.0.4"
