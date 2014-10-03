@@ -1,0 +1,24 @@
+{
+  "name": "number-scale",
+  "version": "0.0.8",
+  "homepage": "https://github.com/yanickrochon/number-scale",
+  "authors": [
+    "Yanick Rochon <yanick.rochon@gmail.com>"
+  ],
+  "description": "Convert numbers according to a given scale.",
+  "main": "lib/number-scale.js",
+  "keywords": [
+    "number",
+    "scale",
+    "format",
+    "human-readable"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "gruntfile.js",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

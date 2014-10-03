@@ -1,6 +1,6 @@
 {
   "name": "number-scale",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Convert numbers according to a given scale.",
   "author": "Yanick Rochon <yanick.rochon@gmail.com>",
   "main": "lib/number-scale.js",
