@@ -64,7 +64,7 @@ This is where the known scales are defined.
 
 #### Custom Scales
 
-It is possible to define a new scale, or even override a current one, by calling `numberScale.defineScale(name, scale)` where `scale` is an `Object` defining the scale's properties. Take a look at the [known scale definitions](lib/number-scale.js#L46-L94) for more information. Once a custom scale has been defined, it can be accessed via `numberScale.scales[name]`.
+It is possible to define a new scale, or even override a current one, by calling `numberScale.defineScale(name, scale, base)` where `scale` is an `Object` defining the scale's properties. Take a look at the [known scale definitions](lib/number-scale.js#L46-L94) for more information. Once a custom scale has been defined, it can be accessed via `numberScale.scales[name]`.
 
 
 ## Contribution
