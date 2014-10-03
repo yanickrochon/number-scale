@@ -47,7 +47,7 @@ A function receiving a number, and optionally some options, and return the scale
   * **unit**:*String* - the scale unit suffix *(Defaults to `""`)*
   * **recursive**:*Number* - instead of returning a string, return an array of length `recursive + 1` elements.
 
-**NOTE** : default options can be overridden by modifying `numberScale.defaultOptions`.
+**NOTE** : default options can be overridden by modifying `numberScale.options.default`.
 
 
 #### Predefined Options
