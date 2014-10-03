@@ -3,6 +3,11 @@
 Convert numbers according to a given scale.
 
 
+# Avant propos
+
+This module is heavily inspired from [human-format](https://github.com/julien-f/human-format). While there are still a strong base from that module, the API and behaviour is substantially different in `number-scale`.
+
+
 ## Installation
 
 ```
@@ -22,15 +27,15 @@ console.log(numberScale(n));
 console.log(numberScale(n, { 
   scale: 'time',
   roundMode: 'even',
-  minExponent: 0
+  recursive: 3
 }));
-// ???
+// [ '1d', '10h', '17m', '36.79s' ]
 ```
 
 
 ## API
 
-### numberScale(n:Number[, options:Object]) : String
+### numberScale(n:Number[, options:Object]) : String|Array
 
 A function receiving a number, and optionally some options, and return the scale (aka human readable) representation as a string.
 
@@ -40,6 +45,7 @@ A function receiving a number, and optionally some options, and return the scale
   * **roundMode**:*String* - the rounding method to use. May be one of the following : `"up"` always round up, `"down"` always round down, `"even"` round to nearest even value, `"odd"` round to nearest odd value. *(Defaults to `"up"`)*
   * **scale**:*String* - the scale to use (see [predefined scales](#predefined-scales), or [custom scales](#custom-scales).) *(Defaults to `"SI"`)*
   * **unit**:*String* - the scale unit suffix *(Defaults to `""`)*
+  * **recursive**:*Number* - instead of returning a string, return an array of length `recursive + 1` elements.
 
 **NOTE** : default options can be overridden by modifying `numberScale.defaultOptions`.
 
@@ -48,7 +54,7 @@ A function receiving a number, and optionally some options, and return the scale
 
 For convenience, these predefined options are specified
 
-* **numberScale.options.fileSize**:*Object* - predefined options to display file sizes
+* **numberScale.options.default**:*Object* - predefined default options
 
 
 ### numberScale.scales : Object
@@ -62,9 +68,19 @@ This is where the known scales are defined.
 * **IEEE1541** - is a powers of 2 scale for bytes measurements similar to the **SI** scale.
 
 
+### numberScale.defineScale(name:String, scale:Object, baseUnitValue:Number)
+
+It is possible to define a new scale, or even override a current one, by calling `numberScale.defineScale(name, scale, base)` where `scale` is an `Object` defining the scale's properties. Take a look at the [known scale definitions](lib/number-scale.js#L46-L94) for more information.
+
+
 #### Custom Scales
 
-It is possible to define a new scale, or even override a current one, by calling `numberScale.defineScale(name, scale, base)` where `scale` is an `Object` defining the scale's properties. Take a look at the [known scale definitions](lib/number-scale.js#L46-L94) for more information. Once a custom scale has been defined, it can be accessed via `numberScale.scales[name]`.
+Custom scales are accessible just like any other scales, through the `numberScale.scales` object.
+
+
+### numberScale.parse(value:String|Array[, options:Object]) : Number
+
+This is the inverse of `numberScale(value, options)`. The function returns `NaN` is the given value cannot be parsed.
 
 
 ## Contribution
